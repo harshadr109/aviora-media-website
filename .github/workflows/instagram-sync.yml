@@ -1,0 +1,35 @@
+name: Sync Instagram Top Performers
+on:
+  schedule:
+    - cron: '0 */8 * * *' # Executes every 8 hours
+  workflow_dispatch:
+
+jobs:
+  sync-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Execute Meta Graph Sync
+        env:
+          IG_USER_ID_1: ${{ secrets.IG_USER_ID_1 }}
+          IG_TOKEN_1: ${{ secrets.IG_TOKEN_1 }}
+          IG_USER_ID_2: ${{ secrets.IG_USER_ID_2 }}
+          IG_TOKEN_2: ${{ secrets.IG_TOKEN_2 }}
+        run: python scripts/sync-instagram.py
+
+      - name: Commit Updated Feed
+        run: |
+          git config --global user.name 'Aviora Bot'
+          git config --global user.email 'bot@avioramedia.com'
+          git add data/instagram-feed.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(feed): auto-sync top performing media [skip ci]" && git push)
