@@ -4,28 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
-    <!-- Security: Content Security Policy -->
+    <!-- Security: Strict Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data: blob:; media-src 'self' https: blob:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https:;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <!-- SEO / AEO / GEO Metadata -->
-    <title>Aviora Media | Premier Digital Media & Cinematic Creative Studio Karnataka</title>
-    <meta name="description" content="Cinematic iPhone 17 Pro Max video production, high-conversion carousels, and social media marketing for brands, weddings, and businesses in Bangalore, Mangalore, Udupi, and across Karnataka.">
-    <meta name="keywords" content="video production Karnataka, social media management Udupi, cinematic reels Bangalore, commercial video Mangalore, iPhone 17 Pro production, wedding content creation India">
+    <title>AVIORA MEDIA | Digital Media & Creative Studio Karnataka</title>
+    <meta name="description" content="iPhone-first mobile cinematography, high-impact carousels, and social growth architecture across Bangalore, Mangalore, Udupi, and PAN India.">
     
-    <!-- OpenGraph & Twitter Cards -->
-    <meta property="og:type" content="business.business">
-    <meta property="og:title" content="Aviora Media | Digital Media & Creative Studio">
-    <meta property="og:description" content="iPhone-first mobile cinematography, high-impact carousels, and complete social growth engines in Karnataka, India.">
-    <meta property="og:url" content="https://avioramedia.com">
-    <meta property="og:image" content="https://avioramedia.com/og-cover.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Aviora Media | Commercial Video Production Karnataka">
-    <meta name="twitter:description" content="Engineered to stop the scroll. Commercial brand reels, social management, and transparent pricing.">
-
-    <!-- Schema.org JSON-LD Structured Data for LocalBusiness & Services -->
+    <!-- LocalBusiness & ProfessionalService JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -34,7 +22,6 @@
       "url": "https://avioramedia.com",
       "telephone": "+916364402815",
       "priceRange": "₹1999 - ₹39999",
-      "image": "https://avioramedia.com/image.png",
       "address": {
         "@type": "PostalAddress",
         "addressRegion": "Karnataka",
@@ -43,42 +30,6 @@
       "geo": {
         "@type": "GeoShape",
         "region": "Karnataka, India"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Production Packages",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Quick Shoot Reel",
-              "description": "One hour of on-location coverage, 1 polished reel, iPhone 17 Pro Max workflow."
-            },
-            "price": "1999",
-            "priceCurrency": "INR"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Half Day Shoot",
-              "description": "3 hours coverage, 3 edited cinematic reels delivered in 24 hours."
-            },
-            "price": "4999",
-            "priceCurrency": "INR"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Signature Wedding Coverage",
-              "description": "Up to 3 events, 12 reels, highlight teaser video, same-day delivery."
-            },
-            "price": "24999",
-            "priceCurrency": "INR"
-          }
-        ]
       }
     }
     </script>
@@ -104,6 +55,11 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    letterSpacing: {
+                        tighter: '-.04em',
+                        tight: '-.02em',
+                        widest: '.2em',
                     }
                 }
             }
@@ -115,9 +71,7 @@
             --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        /* Module 8: Scroll reset stability */
         html {
-            scroll-behavior: smooth;
             width: 100%;
             overflow-x: clip;
             -webkit-text-size-adjust: 100%;
@@ -132,10 +86,38 @@
         }
 
         ::selection { background: #E50914; color: #F7F7F7; }
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
-        ::-webkit-scrollbar-thumb:hover { background: #E50914; }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+
+        /* Volumetric Studio Ambience */
+        .red-trail {
+            position: fixed;
+            width: 45vw; height: 45vh;
+            background: radial-gradient(circle, rgba(229,9,20,0.12) 0%, rgba(229,9,20,0) 70%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .trail-1 { top: -10%; left: -10%; animation: float 15s infinite alternate ease-in-out; }
+        .trail-2 { bottom: 10%; right: -10%; animation: float 20s infinite alternate-reverse ease-in-out; }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, 10%) scale(1.2); }
+        }
+
+        .ambient-glow {
+            position: fixed; inset: 0;
+            z-index: -2; pointer-events: none;
+            background: radial-gradient(circle at 50% 30%, #161616 0%, #050505 75%);
+        }
+
+        .film-grain {
+            position: fixed; inset: 0;
+            z-index: 9999; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.035; mix-blend-mode: overlay;
+        }
 
         .glass-panel {
             background: rgba(247,247,247,0.02);
@@ -145,60 +127,18 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
-        /* Form Inputs */
-        .input-group { position: relative; margin-bottom: 1.25rem; }
-        .premium-input {
-            width: 100%;
-            background: rgba(247, 247, 247, 0.05);
-            border: 1px solid rgba(247, 247, 247, 0.2);
-            border-radius: 0.75rem;
-            padding: 1rem 1.25rem;
-            color: #F7F7F7;
-            font-size: 0.875rem;
-            transition: all 0.3s var(--ease-out-expo);
-            outline: none;
-        }
-        .premium-input:focus {
-            border-color: #E50914;
-            background: rgba(5, 5, 5, 0.95);
-            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3);
-        }
-        .premium-label {
-            position: absolute;
-            left: 1.25rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: rgba(247, 247, 247, 0.6);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.3s var(--ease-out-expo);
-            pointer-events: none;
-        }
-        .premium-input:focus ~ .premium-label,
-        .premium-input:not(:placeholder-shown) ~ .premium-label {
-            top: 0rem;
-            left: 0.85rem;
-            font-size: 0.65rem;
-            background: #0F0F0F;
-            padding: 0 0.5rem;
-            color: #E50914;
-            font-weight: 700;
-        }
-
-        /* 3D Arch Marquee Carousel */
+        /* 3D Arch Cylinder Carousel */
         .marquee-wrapper {
             width: 100vw;
             overflow: hidden;
             position: relative;
-            padding: 50px 0 80px 0;
+            padding: 60px 0 100px 0;
             margin-left: -50vw;
             left: 50%;
         }
         .marquee-container {
             display: flex;
-            gap: 2rem;
+            gap: 2.25rem;
             width: max-content;
             animation: scrollMarquee 42s linear infinite;
         }
@@ -209,16 +149,19 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); } 
         }
-
+        
         .arch-card {
-            width: 250px;
-            height: 420px;
+            width: 260px;
+            height: 440px;
             position: relative;
             cursor: pointer;
-            text-decoration: none;
-            display: block;
+            will-change: transform, opacity;
+            z-index: 10;
             flex-shrink: 0;
+            display: block;
+            text-decoration: none;
         }
+
         .card-inner {
             width: 100%;
             height: 100%;
@@ -226,28 +169,102 @@
             overflow: hidden;
             position: relative;
             background: #0A0A0A;
+            transition: all 0.5s var(--ease-out-expo);
             border: 1px solid rgba(247,247,247,0.1);
-            transition: transform 0.4s var(--ease-out-expo), border-color 0.4s, box-shadow 0.4s;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
+        
         .arch-card:hover .card-inner {
-            transform: translateY(-8px);
+            transform: scale(1.04);
+            box-shadow: 0 20px 40px -10px rgba(229,9,20,0.45);
             border-color: #E50914;
-            box-shadow: 0 20px 40px -10px rgba(229,9,20,0.35);
         }
+        
         .hover-reveal {
             position: absolute; inset: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
             display: flex; flex-direction: column; justify-content: flex-end;
-            padding: 24px 18px;
-            opacity: 0.9;
+            padding: 24px 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .arch-card:hover .hover-reveal {
+            opacity: 1;
         }
 
-        /* Module 9: Slide Text Container & Clamping Fix */
-        .work-text-stage {
+        /* iPhone 17 Pro Max Mockup */
+        .iphone-17-pro {
             position: relative;
-            min-height: 280px;
+            width: 290px;
+            height: 600px;
+            border-radius: 50px;
+            background: linear-gradient(145deg, #555, #111 30%, #000 70%, #333);
+            padding: 3px; 
+            box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.2), 0 30px 60px -15px rgba(0,0,0,0.9), 0 0 50px rgba(229, 9, 20, 0.05);
+            transition: all 0.5s ease;
+            pointer-events: none; /* Prevents scroll blocking */
+        }
+        .iphone-17-pro.highlight-red {
+            box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.2), 0 30px 60px -15px rgba(0,0,0,0.9), 0 0 60px rgba(229, 9, 20, 0.3);
+            background: linear-gradient(145deg, #E50914, #111 30%, #000 70%, #8b0000);
+        }
+        .iphone-bezel {
+            width: 100%; height: 100%;
+            border-radius: 48px;
+            background: #000;
+            padding: 6px;
+            position: relative;
+        }
+        .iphone-screen {
+            width: 100%; height: 100%;
+            border-radius: 42px;
+            background: #0A0A0A;
+            position: relative;
+            overflow: hidden;
+        }
+        .dynamic-island {
+            position: absolute;
+            top: 12px; left: 50%;
+            transform: translateX(-50%);
+            width: 86px; height: 24px;
+            background: #000;
+            border-radius: 16px;
+            z-index: 50;
+            display: flex; justify-content: flex-end; align-items: center;
+            padding-right: 8px;
+            box-shadow: inset 0 -1px 2px rgba(255,255,255,0.1);
+        }
+        .camera-lens {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #182035, #000 60%);
+        }
+        .hw-btn {
+            position: absolute; background: #333;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.3), inset 0 -1px 1px rgba(0,0,0,0.8);
+            border-radius: 2px; z-index: -1;
+        }
+        .btn-action { left: -2px; top: 110px; width: 3px; height: 24px; }
+        .btn-vol-up { left: -2px; top: 155px; width: 3px; height: 45px; }
+        .btn-vol-down { left: -2px; top: 215px; width: 3px; height: 45px; }
+        .btn-power { right: -2px; top: 180px; width: 3px; height: 65px; }
+
+        .screen-layer {
+            position: absolute; inset: 0;
+            opacity: 0; visibility: hidden;
+            transform: scale(1.04);
+            transition: opacity 0.6s var(--ease-out-expo), transform 0.8s var(--ease-out-expo), visibility 0.6s;
+        }
+        .screen-layer.active {
+            opacity: 1; visibility: visible;
+            transform: scale(1);
+        }
+
+        /* Work Section Layout Overlap Fix */
+        .work-text-viewport {
+            position: relative;
+            min-height: 300px;
             width: 100%;
-            overflow: visible;
         }
         .svc-text {
             position: absolute;
@@ -258,73 +275,68 @@
             visibility: hidden;
             transform: translateY(20px);
             transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo), visibility 0.5s;
-            pointer-events: none;
-            z-index: 1;
         }
         .svc-text.active {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
-            pointer-events: auto;
-            z-index: 10;
         }
 
-        /* Module 10: Phone Container Scroll-Through Fix */
-        #services-pin {
-            pointer-events: auto;
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(247,247,247,0.25);
         }
-        .iphone-17-pro {
-            position: relative;
-            width: 280px;
-            height: 580px;
-            border-radius: 48px;
-            background: linear-gradient(145deg, #444, #111 40%, #000);
-            padding: 3px;
-            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.9), 0 0 50px rgba(229, 9, 20, 0.08);
-            pointer-events: none; /* Allows pointer pass-through so document scrolling is never trapped */
+        
+        .loader {
+            position: fixed; inset: 0; background: #050505; z-index: 10000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
-        .iphone-bezel {
-            width: 100%; height: 100%;
-            border-radius: 45px;
-            background: #000;
-            padding: 6px;
-            position: relative;
-        }
-        .iphone-screen {
-            width: 100%; height: 100%;
-            border-radius: 40px;
-            background: #0A0A0A;
-            position: relative;
-            overflow: hidden;
-        }
-        .screen-layer {
-            position: absolute; inset: 0;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.5s var(--ease-out-expo), visibility 0.5s;
-        }
-        .screen-layer.active { opacity: 1; visibility: visible; }
 
-        /* Pricing Card Enhancements */
+        /* Form Inputs */
+        .input-group { position: relative; margin-bottom: 1.5rem; }
+        .premium-input {
+            width: 100%;
+            background: rgba(247, 247, 247, 0.05);
+            border: 1px solid rgba(247, 247, 247, 0.2);
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            color: #F7F7F7;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            outline: none;
+        }
+        .premium-input:focus {
+            border-color: #E50914;
+            background: rgba(5, 5, 5, 0.9);
+            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3);
+        }
+        .premium-label {
+            position: absolute;
+            left: 1.25rem; top: 50%;
+            transform: translateY(-50%);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: rgba(247, 247, 247, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            pointer-events: none;
+        }
+        .premium-input:focus ~ .premium-label,
+        .premium-input:not(:placeholder-shown) ~ .premium-label {
+            top: 0rem; left: 0.85rem;
+            font-size: 0.65rem; background: #0F0F0F;
+            padding: 0 0.5rem; color: #E50914; font-weight: 700;
+        }
+
+        /* Pricing Card Design */
         .pricing-card {
-            transition: all 0.4s var(--ease-out-expo);
+            transition: all 0.4s ease;
         }
         .pricing-card:hover {
             border-color: #E50914;
             transform: translateY(-4px);
-        }
-        .pricing-popular-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: #E50914;
-            color: #FFF;
-            font-size: 9px;
-            font-family: 'JetBrains Mono', monospace;
-            padding: 0.3rem 0.7rem;
-            border-radius: 999px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-weight: 700;
+            box-shadow: 0 20px 40px -10px rgba(229, 9, 20, 0.15);
         }
 
         /* FAQ Accordion Transitions */
@@ -338,96 +350,188 @@
         .faq-icon { transition: transform 0.3s ease; }
 
         @media (max-width: 768px) {
-            .arch-card { width: 190px; height: 310px; }
-            .iphone-17-pro { width: 220px; height: 450px; border-radius: 36px; }
-            .iphone-bezel { border-radius: 33px; }
-            .iphone-screen { border-radius: 28px; }
-            .work-text-stage { min-height: 220px; }
+            .arch-card { width: 195px; height: 320px; }
+            .iphone-17-pro { width: 230px; height: 470px; border-radius: 40px; }
+            .iphone-bezel { border-radius: 38px; }
+            .iphone-screen { border-radius: 34px; }
         }
     </style>
 </head>
-<body>
+<body class="selection:bg-avred selection:text-avwhite">
 
-    <!-- Cinematic Navigation -->
-    <nav class="fixed top-0 w-full z-50 px-4 md:px-8 py-4">
-        <header class="max-w-7xl mx-auto glass-panel rounded-2xl px-5 py-3 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3">
-                <img src="image.png" alt="Aviora Media Logo" width="36" height="36" class="w-9 h-9 object-contain brightness-200" onerror="this.src='https://placehold.co/72x72/000000/FFFFFF?text=A'">
-                <span class="font-bold text-sm tracking-[.2em]">AVIORA<span class="text-avred">.</span>MEDIA</span>
-            </a>
-            <div class="hidden md:flex items-center gap-7 text-[10px] font-mono tracking-widest uppercase text-avwhite/60">
-                <a href="#work" class="hover:text-avred transition-colors">Work</a>
-                <a href="#services-trigger" class="hover:text-avred transition-colors">Services</a>
-                <a href="#packages" class="hover:text-avred transition-colors">Packages</a>
-                <a href="#faq" class="hover:text-avred transition-colors">FAQ</a>
+    <!-- Ambient Studio Environment -->
+    <div class="ambient-glow"></div>
+    <div class="film-grain"></div>
+    <div class="red-trail trail-1"></div>
+    <div class="red-trail trail-2"></div>
+
+    <!-- Cinematic Loader -->
+    <div class="loader" id="loader">
+        <div class="w-32 md:w-48 overflow-hidden relative flex justify-center flex-col items-center">
+            <img src="WhatsApp Image 2026-09-29 at 11.47.00 AM.jpeg" alt="Aviora Media Logo" class="w-full h-auto object-contain mix-blend-screen" id="loader-logo" onerror="this.style.display='none'">
+            <div class="font-bold text-sm tracking-[.3em] font-mono mt-3">AVIORA<span class="text-avred">.</span>MEDIA</div>
+            <div class="w-full h-[1px] bg-avwhite/10 mt-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 h-full bg-avred w-0" id="loader-progress"></div>
             </div>
-            <a href="#booking" class="bg-avwhite text-avblack px-4 py-2 rounded-full text-[10px] font-bold tracking-widest uppercase hover:bg-avred hover:text-white transition-all">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 p-4 md:px-8 md:py-5">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-5 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img src="image.png" alt="Aviora Logo" class="w-9 h-9 object-contain brightness-200 mix-blend-screen" onerror="this.src='https://placehold.co/72x72/000000/FFFFFF?text=A'">
+                <span class="font-bold text-sm tracking-[.22em]">AVIORA<span class="text-avred">.</span>MEDIA</span>
+            </a>
+            <div class="hidden md:flex items-center gap-7 text-[10px] font-mono tracking-widest uppercase text-avwhite/55">
+                <a href="#work" class="hover:text-avwhite transition-colors">Work</a>
+                <a href="#services-trigger" class="hover:text-avwhite transition-colors">Services</a>
+                <a href="#packages" class="hover:text-avwhite transition-colors">Packages</a>
+                <a href="#faq" class="hover:text-avwhite transition-colors">FAQ</a>
+            </div>
+            <a href="#booking" class="bg-avwhite text-avblack px-4 py-2.5 rounded-full text-[10px] font-bold tracking-widest uppercase hover:bg-avred hover:text-white transition-all">
                 Book a shoot
             </a>
-        </header>
+        </div>
     </nav>
 
-    <main id="main-content">
-        <!-- HERO SECTION -->
-        <section class="relative min-h-[92svh] w-full flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-32 pb-16">
-            <div class="max-w-7xl">
-                <p class="font-mono text-avred text-xs md:text-sm tracking-widest uppercase mb-4">
-                    [ DIGITAL MEDIA & CREATIVE STUDIO · KARNATAKA ]
-                </p>
-                <h1 class="text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-[0.95] mb-6">
-                    Your Brand <span class="text-avred">In Motion.</span><br>
-                    <span class="opacity-40">Shot. Edited. Built.</span>
+    <main id="main-content" class="opacity-0">
+        
+        <!-- 01. HERO SECTION & 3D CYLINDER MARQUEE -->
+        <section class="relative min-h-[100svh] w-full flex flex-col justify-center px-6 md:px-12 lg:px-24 overflow-hidden pt-32 pb-16">
+            <div class="max-w-7xl relative z-10">
+                <div class="overflow-hidden mb-6">
+                    <p class="hero-text font-mono text-avred text-sm tracking-widest uppercase transform translate-y-full">
+                        [ DIGITAL MEDIA & CREATIVE STUDIO · KARNATAKA ]
+                    </p>
+                </div>
+                
+                <h1 class="text-[3.2rem] md:text-[5.5rem] lg:text-[7rem] leading-[0.95] font-black tracking-tighter uppercase text-avwhite">
+                    <div class="overflow-hidden"><span class="hero-text block transform translate-y-full">YOUR CREATIVE</span></div>
+                    <div class="overflow-hidden"><span class="hero-text block transform translate-y-full text-avred drop-shadow-[0_0_30px_rgba(229,9,20,0.3)]">JOURNEY</span></div>
+                    <div class="overflow-hidden"><span class="hero-text block transform translate-y-full text-outline">BEGINS HERE.</span></div>
                 </h1>
-                <p class="text-avwhite/60 max-w-xl text-sm md:text-base leading-relaxed mb-8">
-                    Cinematic iPhone 17 Pro Max production workflows, engineered retention pacing, and social media architecture built to convert across Bangalore, Mangalore, Udupi, and PAN India.
-                </p>
-                <div class="flex items-center gap-6">
-                    <a href="#packages" class="bg-avred text-white text-xs font-mono uppercase tracking-widest px-7 py-4 rounded-xl shadow-[0_0_25px_rgba(229,9,20,0.4)] hover:brightness-110">
-                        Explore Packages
-                    </a>
-                    <a href="#work" class="text-xs font-mono uppercase tracking-widest border border-avwhite/20 px-7 py-4 rounded-xl hover:bg-white/5">
-                        View Client Reel
-                    </a>
+                
+                <div class="overflow-hidden mt-8 max-w-xl mb-12">
+                    <p class="hero-text text-avwhite/60 md:text-lg transform translate-y-full leading-relaxed">
+                        Creative media, design, and storytelling engineered to make brands impossible to scroll past. Shot exclusively on iPhone 17 Pro Max across Bangalore, Mangalore, Udupi, and PAN India.
+                    </p>
                 </div>
             </div>
-
-            <!-- MODULE 7: Dynamic Arch Carousel -->
-            <div class="marquee-wrapper" id="work">
+            
+            <!-- 3D Curved Cylinder Arch Marquee (Auto-scrolling with Live Instagram Links) -->
+            <div class="marquee-wrapper z-20" id="work">
                 <div class="marquee-container" id="arch-carousel">
-                    <!-- Cards will be populated dynamically or fallback cleanly -->
+                    <!-- Set 1 -->
                     <a href="https://instagram.com/aviora.media" target="_blank" rel="noopener noreferrer" class="arch-card">
                         <div class="card-inner">
-                            <video src="https://cdn.coverr.co/videos/coverr-a-man-working-out-in-the-gym-2661/1080p.mp4" autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover"></video>
+                            <video src="https://cdn.coverr.co/videos/coverr-a-man-working-out-in-the-gym-2661/1080p.mp4" autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover opacity-80"></video>
+                            <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md text-[9px] font-mono px-3 py-1 rounded-full text-avwhite border border-white/10 whitespace-nowrap z-10">CLIENT WORK</div>
                             <div class="hover-reveal">
-                                <span class="text-[9px] font-mono text-avred uppercase">Client Work ↗</span>
-                                <h3 class="font-bold text-sm uppercase">Athletic Brand Promo</h3>
+                                <div class="w-10 h-10 bg-avred rounded-full flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(229,9,20,0.5)]">
+                                    <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <span class="text-avwhite text-[10px] font-mono mb-1 opacity-70">Shot on iPhone 17 Pro Max</span>
+                                <h3 class="font-bold text-lg uppercase">Athletic Brand Promo</h3>
                             </div>
                         </div>
                     </a>
+                    
                     <a href="https://instagram.com/aviora.media" target="_blank" rel="noopener noreferrer" class="arch-card">
                         <div class="card-inner">
-                            <video src="https://cdn.coverr.co/videos/coverr-making-a-cup-of-coffee-3837/1080p.mp4" autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover"></video>
+                            <video src="https://cdn.coverr.co/videos/coverr-making-a-cup-of-coffee-3837/1080p.mp4" autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover opacity-80"></video>
+                            <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md text-[9px] font-mono px-3 py-1 rounded-full text-avwhite border border-white/10 whitespace-nowrap z-10">CLIENT WORK</div>
                             <div class="hover-reveal">
-                                <span class="text-[9px] font-mono text-avred uppercase">Client Work ↗</span>
-                                <h3 class="font-bold text-sm uppercase">Cafe Cinematic Edit</h3>
+                                <div class="w-10 h-10 bg-avred rounded-full flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(229,9,20,0.5)]">
+                                    <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <span class="text-avwhite text-[10px] font-mono mb-1 opacity-70">Shot on iPhone 17 Pro Max</span>
+                                <h3 class="font-bold text-lg uppercase">Cafe Commercial Edit</h3>
                             </div>
                         </div>
                     </a>
+                    
                     <a href="https://instagram.com/aviora.media" target="_blank" rel="noopener noreferrer" class="arch-card">
                         <div class="card-inner">
-                            <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=600&auto=format&fit=crop" loading="lazy" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=600&auto=format&fit=crop" loading="lazy" class="w-full h-full object-cover opacity-80 grayscale">
+                            <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md text-[9px] font-mono px-3 py-1 rounded-full text-avwhite border border-white/10 whitespace-nowrap z-10">CLIENT WORK</div>
                             <div class="hover-reveal">
-                                <span class="text-[9px] font-mono text-avred uppercase">Client Work ↗</span>
-                                <h3 class="font-bold text-sm uppercase">Tech Startup Identity</h3>
+                                <div class="w-10 h-10 bg-avwhite rounded-full flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                                    <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M4 6h16M4 12h16m-7 6h7"/></svg>
+                                </div>
+                                <span class="text-avwhite text-[10px] font-mono mb-1 opacity-70">High-Converting Grid</span>
+                                <h3 class="font-bold text-lg uppercase">Tech Startup Identity</h3>
                             </div>
                         </div>
                     </a>
+                    
                     <a href="https://instagram.com/aviora.media" target="_blank" rel="noopener noreferrer" class="arch-card">
                         <div class="card-inner">
-                            <video src="https://cdn.coverr.co/videos/coverr-people-talking-in-an-office-4632/1080p.mp4" autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover"></video>
+                            <video src="https://cdn.coverr.co/videos/coverr-people-talking-in-an-office-4632/1080p.mp4" autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover opacity-80"></video>
+                            <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md text-[9px] font-mono px-3 py-1 rounded-full text-avwhite border border-white/10 whitespace-nowrap z-10">CLIENT WORK</div>
                             <div class="hover-reveal">
-                                <span class="text-[9px] font-mono text-avred uppercase">Client Work ↗</span>
-                                <h3 class="font-bold text-sm uppercase">B2B Podcast Shorts</h3>
+                                <div class="w-10 h-10 bg-avred rounded-full flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(229,9,20,0.5)]">
+                                    <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <span class="text-avwhite text-[10px] font-mono mb-1 opacity-70">Shot on iPhone 17 Pro Max</span>
+                                <h3 class="font-bold text-lg uppercase">B2B Podcast Shorts</h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Duplicated Set for Infinite Seamless 3D Loop -->
+                    <a href="https://instagram.com/aviora.media" target="_blank" rel="noopener noreferrer" class="arch-card">
+                        <div class="card-inner">
+                            <video src="https://cdn.coverr.co/videos/coverr-a-man-working-out-in-the-gym-2661/1080p.mp4" autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover opacity-80"></video>
+                            <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md text-[9px] font-mono px-3 py-1 rounded-full text-avwhite border border-white/10 whitespace-nowrap z-10">CLIENT WORK</div>
+                            <div class="hover-reveal">
+                                <div class="w-10 h-10 bg-avred rounded-full flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(229,9,20,0.5)]">
+                                    <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <span class="text-avwhite text-[10px] font-mono mb-1 opacity-70">Shot on iPhone 17 Pro Max</span>
+                                <h3 class="font-bold text-lg uppercase">Athletic Brand Promo</h3>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://instagram.com/aviora.media" target="_blank" rel="noopener noreferrer" class="arch-card">
+                        <div class="card-inner">
+                            <video src="https://cdn.coverr.co/videos/coverr-making-a-cup-of-coffee-3837/1080p.mp4" autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover opacity-80"></video>
+                            <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md text-[9px] font-mono px-3 py-1 rounded-full text-avwhite border border-white/10 whitespace-nowrap z-10">CLIENT WORK</div>
+                            <div class="hover-reveal">
+                                <div class="w-10 h-10 bg-avred rounded-full flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(229,9,20,0.5)]">
+                                    <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <span class="text-avwhite text-[10px] font-mono mb-1 opacity-70">Shot on iPhone 17 Pro Max</span>
+                                <h3 class="font-bold text-lg uppercase">Cafe Commercial Edit</h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com/aviora.media" target="_blank" rel="noopener noreferrer" class="arch-card">
+                        <div class="card-inner">
+                            <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=600&auto=format&fit=crop" loading="lazy" class="w-full h-full object-cover opacity-80 grayscale">
+                            <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md text-[9px] font-mono px-3 py-1 rounded-full text-avwhite border border-white/10 whitespace-nowrap z-10">CLIENT WORK</div>
+                            <div class="hover-reveal">
+                                <div class="w-10 h-10 bg-avwhite rounded-full flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                                    <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M4 6h16M4 12h16m-7 6h7"/></svg>
+                                </div>
+                                <span class="text-avwhite text-[10px] font-mono mb-1 opacity-70">High-Converting Grid</span>
+                                <h3 class="font-bold text-lg uppercase">Tech Startup Identity</h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com/aviora.media" target="_blank" rel="noopener noreferrer" class="arch-card">
+                        <div class="card-inner">
+                            <video src="https://cdn.coverr.co/videos/coverr-people-talking-in-an-office-4632/1080p.mp4" autoplay loop muted playsinline loading="lazy" class="w-full h-full object-cover opacity-80"></video>
+                            <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md text-[9px] font-mono px-3 py-1 rounded-full text-avwhite border border-white/10 whitespace-nowrap z-10">CLIENT WORK</div>
+                            <div class="hover-reveal">
+                                <div class="w-10 h-10 bg-avred rounded-full flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(229,9,20,0.5)]">
+                                    <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <span class="text-avwhite text-[10px] font-mono mb-1 opacity-70">Shot on iPhone 17 Pro Max</span>
+                                <h3 class="font-bold text-lg uppercase">B2B Podcast Shorts</h3>
                             </div>
                         </div>
                     </a>
@@ -435,63 +539,77 @@
             </div>
         </section>
 
-        <!-- MODULE 9 & 10: FIXED SERVICES & SCROLL-THROUGH IPHONE STAGE -->
-        <section id="services-trigger" class="relative py-24 md:py-32 border-t border-avwhite/5">
-            <div id="services-pin" class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-12">
+        <!-- 02. SERVICES & SCROLL-PINNED IPHONE 17 PRO MAX STAGE -->
+        <section id="services-trigger" class="relative bg-avblack/50 border-t border-avwhite/5">
+            <div id="services-pin" class="h-[100svh] w-full flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
                 
-                <!-- Left: Non-overlapping Work Slider Context -->
-                <div class="w-full md:w-1/2">
-                    <div class="work-text-stage">
-                        <article class="svc-text active" data-index="0">
-                            <span class="font-mono text-xs text-avred tracking-widest uppercase mb-3 block">[ 01. PRODUCTION ]</span>
-                            <h2 class="text-3xl md:text-5xl font-black uppercase mb-4 text-avwhite">Cinematic Reels.</h2>
-                            <p class="text-avwhite/60 text-sm md:text-base leading-relaxed mb-6">
-                                High-retention, mobile-native short-form video calibrated for organic engagement. Shot on iPhone 17 Pro Max in 4K ProRes with professional studio lighting and spatial audio capture. Extra overage time billed at ₹500/hr.
+                <!-- Left: Non-Colliding Transitioning Text Context -->
+                <div class="w-full md:w-1/2 flex items-center z-20">
+                    <div class="work-text-viewport">
+                        <div class="svc-text active" data-index="0">
+                            <span class="font-mono text-xs text-avred tracking-widest uppercase mb-4 block">[ 01. PRODUCTION ]</span>
+                            <h2 class="text-3xl md:text-5xl font-black tracking-tighter uppercase mb-6 text-avwhite">Cinematic<br>Reels.</h2>
+                            <p class="text-avwhite/60 text-sm max-w-md mb-6 leading-relaxed">
+                                High-retention, visually striking short-form content designed to capture attention and convert viewers into followers. Extra overage time charged at ₹500/hour.
                             </p>
-                        </article>
+                        </div>
 
-                        <article class="svc-text" data-index="1">
-                            <span class="font-mono text-xs text-avred tracking-widest uppercase mb-3 block">[ 02. DESIGN ]</span>
-                            <h2 class="text-3xl md:text-5xl font-black uppercase mb-4 text-avwhite">High-Impact Carousels.</h2>
-                            <p class="text-avwhite/60 text-sm md:text-base leading-relaxed mb-6">
-                                Multi-slide educational and product narratives engineered to trigger saves and shares. Minimalist typography, custom iconography, and dark-matte aesthetic execution.
+                        <div class="svc-text" data-index="1">
+                            <span class="font-mono text-xs text-avred tracking-widest uppercase mb-4 block">[ 02. DESIGN ]</span>
+                            <h2 class="text-3xl md:text-5xl font-black tracking-tighter uppercase mb-6 text-avwhite">High-Impact<br>Carousels.</h2>
+                            <p class="text-avwhite/60 text-sm max-w-md mb-6 leading-relaxed">
+                                Strategic multi-slide graphics that educate, provide immense value, and drive saves and shares for compounding organic growth.
                             </p>
-                        </article>
+                        </div>
 
-                        <article class="svc-text" data-index="2">
-                            <span class="font-mono text-xs text-avred tracking-widest uppercase mb-3 block">[ 03. MANAGEMENT ]</span>
-                            <h2 class="text-3xl md:text-5xl font-black uppercase mb-4 text-avwhite">Account Strategy.</h2>
-                            <p class="text-avwhite/60 text-sm md:text-base leading-relaxed mb-6">
-                                End-to-end editorial scheduling, thumbnail composition, caption copy, community interaction protocols, and monthly analytical growth audits.
+                        <div class="svc-text" data-index="2">
+                            <span class="font-mono text-xs text-avred tracking-widest uppercase mb-4 block">[ 03. MANAGEMENT ]</span>
+                            <h2 class="text-3xl md:text-5xl font-black tracking-tighter uppercase mb-6 text-avwhite">Full Account<br>Strategy.</h2>
+                            <p class="text-avwhite/60 text-sm max-w-md mb-6 leading-relaxed">
+                                We plan the content, shape the visual identity, publish with intent, and use performance signals to decide what gets made next.
                             </p>
-                        </article>
-                    </div>
-
-                    <!-- Slide Controller Buttons -->
-                    <div class="flex items-center gap-3 mt-6">
-                        <button onclick="setSlide(0)" class="slide-indicator w-8 h-1 bg-avred transition-all duration-300" aria-label="Slide 1"></button>
-                        <button onclick="setSlide(1)" class="slide-indicator w-8 h-1 bg-avwhite/20 transition-all duration-300" aria-label="Slide 2"></button>
-                        <button onclick="setSlide(2)" class="slide-indicator w-8 h-1 bg-avwhite/20 transition-all duration-300" aria-label="Slide 3"></button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right: Phone Mockup (Allows native page scroll right through) -->
-                <div class="w-full md:w-1/2 flex justify-center md:justify-end">
-                    <div class="iphone-17-pro" id="main-iphone">
+                <!-- Right: Interactive Sticky iPhone 17 Pro Max -->
+                <div class="w-full md:w-1/2 flex justify-center md:justify-end items-center mt-6 md:mt-0">
+                    <div class="iphone-17-pro shadow-2xl" id="main-iphone">
+                        <div class="hw-btn btn-action"></div>
+                        <div class="hw-btn btn-vol-up"></div>
+                        <div class="hw-btn btn-vol-down"></div>
+                        <div class="hw-btn btn-power"></div>
+                        
                         <div class="iphone-bezel">
                             <div class="iphone-screen">
-                                <div class="screen-layer active" data-index="0">
-                                    <video src="https://cdn.coverr.co/videos/coverr-man-boxing-in-gym-5182/1080p.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
-                                </div>
-                                <div class="screen-layer" data-index="1">
-                                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover">
-                                </div>
-                                <div class="screen-layer bg-[#0E0E0E] flex flex-col items-center justify-center p-6 text-center" data-index="2">
-                                    <div class="w-12 h-12 rounded-full border border-avred flex items-center justify-center mb-3">
-                                        <span class="text-avred font-mono text-xs">AV</span>
+                                <div class="dynamic-island"><div class="camera-lens"></div></div>
+                                
+                                <div class="screen-layer active bg-black" data-index="0">
+                                    <video src="https://cdn.coverr.co/videos/coverr-man-boxing-in-gym-5182/1080p.mp4" autoplay loop muted playsinline class="w-full h-full object-cover opacity-90"></video>
+                                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent text-white z-20">
+                                        <div class="flex items-center gap-2 mb-1"><div class="w-5 h-5 rounded-full bg-white"></div><span class="text-xs font-bold">aviora.media</span></div>
+                                        <p class="text-[11px] text-white/80">Visual impact over everything. 🎥</p>
                                     </div>
-                                    <h4 class="font-bold text-sm">Account Scaling</h4>
-                                    <p class="text-[10px] text-avwhite/50 mt-1">Growth Systems · Consistency · Retention</p>
+                                </div>
+
+                                <div class="screen-layer bg-[#111]" data-index="1">
+                                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover opacity-90 grayscale">
+                                    <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-1.5 z-20">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-white"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                    </div>
+                                </div>
+
+                                <div class="screen-layer bg-[#0A0A0A]" data-index="2">
+                                    <div class="w-full h-full pt-16 px-4">
+                                        <div class="flex items-center gap-3 mb-6">
+                                            <div class="w-14 h-14 rounded-full border border-avred p-0.5"><div class="w-full h-full rounded-full bg-white flex items-center justify-center"><img src="WhatsApp Image 2026-09-29 at 11.47.00 AM.jpeg" class="w-7" onerror="this.src='https://placehold.co/40x40/000/FFF?text=A'"></div></div>
+                                            <div><h3 class="font-bold text-xs text-white">Aviora Media</h3><p class="text-[10px] text-avwhite/60">Creative Studio</p></div>
+                                        </div>
+                                        <div class="grid grid-cols-3 gap-1">
+                                            <div class="aspect-square bg-avwhite/10 rounded-sm"></div><div class="aspect-square bg-avwhite/10 rounded-sm"></div><div class="aspect-square bg-avwhite/10 rounded-sm"></div>
+                                            <div class="aspect-square bg-avwhite/10 rounded-sm"></div><div class="aspect-square bg-avwhite/10 rounded-sm"></div><div class="aspect-square bg-avwhite/10 rounded-sm"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -501,335 +619,583 @@
             </div>
         </section>
 
-        <!-- TRANSPARENT PACKAGES & PRICING -->
-        <section class="py-24 border-t border-avwhite/5" id="packages">
+        <!-- 03. TRANSPARENT PACKAGES & PRICING -->
+        <section class="py-24 md:py-32 bg-transparent border-t border-avwhite/5 relative z-10" id="packages">
             <div class="max-w-7xl mx-auto px-6 md:px-12">
-                <div class="text-center mb-12">
-                    <span class="font-mono text-xs text-avred uppercase tracking-widest mb-2 block">[ INVESTMENT TIERS ]</span>
-                    <h2 class="text-3xl md:text-5xl font-black uppercase">Tailored Commercial Packages</h2>
+                <div class="text-center mb-16">
+                    <span class="font-mono text-xs text-avred tracking-widest uppercase mb-3 block">[ INVESTMENT & DELIVERABLES ]</span>
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tighter uppercase text-avwhite mb-4">Tailored Creative Solutions.<br>Premium Quality.</h2>
+                    <p class="text-avwhite/50 text-sm max-w-lg mx-auto">Transparent packages built for the Indian market to build authority and drive high conversions.</p>
                 </div>
 
-                <div class="flex justify-center mb-10">
-                    <div class="inline-flex bg-avwhite/5 p-1 rounded-full border border-avwhite/10" id="pricing-tabs">
-                        <button onclick="renderTab('instant', this)" class="px-5 py-2.5 rounded-full text-xs font-mono uppercase bg-avred text-white">Instant</button>
-                        <button onclick="renderTab('business', this)" class="px-5 py-2.5 rounded-full text-xs font-mono uppercase text-avwhite/60">Business</button>
-                        <button onclick="renderTab('wedding', this)" class="px-5 py-2.5 rounded-full text-xs font-mono uppercase text-avwhite/60">Wedding</button>
+                <div class="flex justify-center mb-12">
+                    <div class="inline-flex bg-avwhite/5 p-1.5 rounded-full border border-avwhite/10 backdrop-blur-md flex-wrap justify-center gap-2" id="pricing-tabs">
+                        <button onclick="switchTab('instant', this)" class="pricing-tab-btn px-6 py-3 rounded-full text-xs font-mono uppercase tracking-widest transition-all duration-300 bg-avred text-white shadow-[0_0_15px_rgba(229,9,20,0.4)]">Instant Packages</button>
+                        <button onclick="switchTab('business', this)" class="pricing-tab-btn px-6 py-3 rounded-full text-xs font-mono uppercase tracking-widest transition-all duration-300 text-avwhite/60 hover:text-avwhite">Business Packages</button>
+                        <button onclick="switchTab('wedding', this)" class="pricing-tab-btn px-6 py-3 rounded-full text-xs font-mono uppercase tracking-widest transition-all duration-300 text-avwhite/60 hover:text-avwhite">Wedding & Events</button>
                     </div>
                 </div>
 
-                <div id="pricing-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <!-- Populated dynamically via JS -->
+                <div class="w-full" id="pricing-cards-container">
+                    <!-- Dynamic pricing cards -->
                 </div>
             </div>
         </section>
 
-        <!-- AEO-STRUCTURED FAQ SECTION -->
+        <!-- 04. AEO-OPTIMIZED FAQ SECTION -->
         <section id="faq" class="py-24 px-6 md:px-12 border-t border-avwhite/5">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <span class="font-mono text-xs text-avred uppercase tracking-widest mb-2 block">[ DIRECT ANSWERS ]</span>
-                    <h2 class="text-3xl md:text-4xl font-black uppercase">Frequently Asked Questions</h2>
+            <div class="max-w-5xl mx-auto grid lg:grid-cols-4 gap-12">
+                <div>
+                    <span class="font-mono text-xs text-avred tracking-widest uppercase block mb-3">[ FAQ ]</span>
+                    <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter">Direct<br>Answers.</h2>
                 </div>
-                <dl class="space-y-4">
-                    <div class="faq-item border-b border-white/10 pb-4">
-                        <dt>
-                            <button class="w-full py-4 flex items-center justify-between text-left font-bold text-sm uppercase">
-                                What gear and cameras are used on location?
-                                <span class="faq-icon text-avred text-xl font-mono">+</span>
-                            </button>
-                        </dt>
-                        <dd class="faq-answer"><div class="text-xs text-avwhite/60 leading-relaxed pr-8">Our core commercial and event packages utilize iPhone 17 Pro Max devices shooting 4K ProRes LOG color profiles paired with wireless DJI Mic 2 audio capture and motorized stabilization.</div></dd>
-                    </div>
-                    <div class="faq-item border-b border-white/10 pb-4">
-                        <dt>
-                            <button class="w-full py-4 flex items-center justify-between text-left font-bold text-sm uppercase">
-                                Which geographic locations do you serve across Karnataka?
-                                <span class="faq-icon text-avred text-xl font-mono">+</span>
-                            </button>
-                        </dt>
-                        <dd class="faq-answer"><div class="text-xs text-avwhite/60 leading-relaxed pr-8">We operate regularly across Bangalore, Mangalore, Udupi, and Manipal. For travel outside these districts across South India, outstation travel arrangements are calculated transparently upon inquiry.</div></dd>
-                    </div>
-                    <div class="faq-item border-b border-white/10 pb-4">
-                        <dt>
-                            <button class="w-full py-4 flex items-center justify-between text-left font-bold text-sm uppercase">
-                                What is the guaranteed delivery turnaround time?
-                                <span class="faq-icon text-avred text-xl font-mono">+</span>
-                            </button>
-                        </dt>
-                        <dd class="faq-answer"><div class="text-xs text-avwhite/60 leading-relaxed pr-8">Quick Shoot and Half Day instant packages feature a guaranteed 24-hour delivery turnaround. Wedding and multi-event packages offer same-day sneak peeks and 48-hour final reel suites.</div></dd>
-                    </div>
-                </dl>
+                <div class="lg:col-span-3">
+                    <dl class="space-y-2">
+                        <div class="faq-item border-t border-avwhite/10">
+                            <dt>
+                                <button class="w-full py-6 flex items-center justify-between text-left faq-toggle">
+                                    <span class="font-bold uppercase text-sm">What do you shoot on?</span>
+                                    <span class="faq-icon text-avred text-2xl font-light">+</span>
+                                </button>
+                            </dt>
+                            <dd class="faq-answer">
+                                <div><p class="pb-6 text-sm text-avwhite/50 leading-relaxed">Aviora's production packages are captured exclusively on iPhone 17 Pro Max in 4K ProRes LOG format with studio wireless audio and motorized gimbal stabilization.</p></div>
+                            </dd>
+                        </div>
+                        <div class="faq-item border-t border-avwhite/10">
+                            <dt>
+                                <button class="w-full py-6 flex items-center justify-between text-left faq-toggle">
+                                    <span class="font-bold uppercase text-sm">Do you provide raw footage?</span>
+                                    <span class="faq-icon text-avred text-2xl font-light">+</span>
+                                </button>
+                            </dt>
+                            <dd class="faq-answer">
+                                <div><p class="pb-6 text-sm text-avwhite/50 leading-relaxed">RAW unedited footage is included where specified (such as the Complete Story package) and can be delivered for any package as an optional add-on.</p></div>
+                            </dd>
+                        </div>
+                        <div class="faq-item border-t border-avwhite/10">
+                            <dt>
+                                <button class="w-full py-6 flex items-center justify-between text-left faq-toggle">
+                                    <span class="font-bold uppercase text-sm">Can you travel outside Karnataka?</span>
+                                    <span class="faq-icon text-avred text-2xl font-light">+</span>
+                                </button>
+                            </dt>
+                            <dd class="faq-answer">
+                                <div><p class="pb-6 text-sm text-avwhite/50 leading-relaxed">Yes. While our primary studio operations are in Bangalore, Mangalore, and Udupi, we frequently travel for destination shoots across South India and PAN India.</p></div>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
             </div>
         </section>
 
-        <!-- SECURE BOOKING & INTAKE FORM -->
-        <section id="booking" class="py-24 px-6 md:px-12 bg-avblack border-t border-avwhite/10">
-            <div class="max-w-4xl mx-auto glass-panel p-8 md:p-12 rounded-3xl bg-[#0F0F0F]">
-                <h2 class="text-3xl md:text-5xl font-black uppercase mb-3">Lock In Your Production</h2>
-                <p class="text-avwhite/50 text-sm mb-8">Enter your project specifications. Our team confirms availability within 24 hours.</p>
-
-                <form id="booking-form" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="input-group">
-                            <input type="text" id="fullname" required class="premium-input" placeholder=" " maxlength="80">
-                            <label class="premium-label">Full Name *</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" id="email" required class="premium-input" placeholder=" " maxlength="100">
-                            <label class="premium-label">Email Address *</label>
-                        </div>
-                    </div>
-
-                    <div class="input-group flex gap-2">
-                        <div class="w-20 premium-input text-center font-mono text-sm bg-black/40 flex items-center justify-center">+91</div>
-                        <div class="w-full relative">
-                            <input type="tel" id="phone" required pattern="[0-9]{10}" class="premium-input" placeholder=" " maxlength="10">
-                            <label class="premium-label">10-Digit Mobile Number *</label>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="input-group">
-                            <select id="packageType" required class="premium-input text-sm">
-                                <option value="" disabled selected hidden></option>
-                                <option value="Quick Shoot (₹1,999)">Quick Shoot (₹1,999 + GST)</option>
-                                <option value="Half Day (₹4,999)">Half Day (₹4,999 + GST)</option>
-                                <option value="Brand Shoot (Custom)">Brand Shoot (Custom Scope)</option>
-                                <option value="Product Shoot (₹6,999+)">Product Shoot (₹6,999+)</option>
-                                <option value="Wedding Signature (₹24,999)">Wedding Signature (₹24,999)</option>
-                            </select>
-                            <label class="premium-label">Selected Package *</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="date" id="eventDate" required class="premium-input">
-                            <label class="premium-label">Target Shoot Date *</label>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="input-group">
-                            <select id="state" required class="premium-input text-sm">
-                                <option value="Karnataka" selected>Karnataka</option>
-                                <option value="Other">Other Region</option>
-                            </select>
-                            <label class="premium-label">State *</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="text" id="city" required placeholder=" " value="Udupi" class="premium-input" maxlength="50">
-                            <label class="premium-label">City / Town *</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="text" id="venue" required placeholder=" " class="premium-input" maxlength="80">
-                            <label class="premium-label">Venue / Studio *</label>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <textarea id="eventDetails" required rows="3" class="premium-input pt-4" placeholder=" " maxlength="400"></textarea>
-                        <label class="premium-label">Brief & Production Goals *</label>
-                    </div>
-
-                    <button type="submit" id="submit-btn" class="w-full bg-avred text-white font-bold py-4 rounded-xl uppercase tracking-widest text-xs hover:brightness-110 transition-all">
-                        Transmit Booking Request
-                    </button>
+        <!-- 05. SECURE INTAKE & WHATSAPP ROUTING FORM -->
+        <section id="booking" class="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-avblack border-t border-avwhite/10 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 relative z-10 items-start">
+                
+                <div class="w-full lg:w-2/3 glass-panel p-8 md:p-12 rounded-[2rem] border border-avwhite/5 shadow-2xl relative bg-[#0F0F0F]">
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tighter uppercase mb-3 text-avwhite">Lock in your shoot.</h2>
+                    <p class="text-avwhite/50 mb-10 text-sm md:text-base max-w-lg leading-relaxed">Share your date, city, and event details. Our creative team will review your requirements and lock in your slot.</p>
                     
-                    <div id="booking-status" class="hidden text-center text-xs font-mono p-3 rounded-lg border border-avred/40 bg-avred/10 text-white"></div>
-                </form>
+                    <form class="space-y-4" id="booking-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6">
+                            <div class="input-group mt-2">
+                                <input type="text" id="fullname" required class="premium-input" placeholder=" " maxlength="80">
+                                <label class="premium-label">Full Name *</label>
+                            </div>
+                            <div class="input-group mt-2">
+                                <input type="email" id="email" required class="premium-input" placeholder=" " maxlength="100">
+                                <label class="premium-label">Email Address *</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group flex gap-3">
+                            <div class="w-[20%] md:w-[15%] premium-input text-center text-avwhite/70 flex items-center justify-center font-mono py-0 !px-0 bg-black/50 border-avwhite/15">
+                                +91
+                            </div>
+                            <div class="w-[80%] md:w-[85%] relative">
+                                <input type="tel" id="phone" required pattern="[0-9]{10}" class="premium-input" placeholder=" " maxlength="10">
+                                <label class="premium-label">10-Digit Mobile Number *</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group mt-4">
+                            <select id="package-type" required class="premium-input">
+                                <option value="" disabled selected hidden></option>
+                                <optgroup label="Instant Packages" class="bg-avcard text-avred font-mono text-[10px]">
+                                    <option value="Quick Shoot (₹1,999)" class="text-avwhite text-sm font-sans">Quick Shoot (₹1,999)</option>
+                                    <option value="Half Day (₹4,999)" class="text-avwhite text-sm font-sans">Half Day (₹4,999)</option>
+                                </optgroup>
+                                <optgroup label="Business Packages" class="bg-avcard text-avred font-mono text-[10px]">
+                                    <option value="Brand Shoot (Custom)" class="text-avwhite text-sm font-sans">Brand Shoot (Custom)</option>
+                                    <option value="Product Shoot (₹6,999+)" class="text-avwhite text-sm font-sans">Product Shoot (₹6,999+)</option>
+                                </optgroup>
+                                <optgroup label="Wedding & Events" class="bg-avcard text-avred font-mono text-[10px]">
+                                    <option value="Essential (₹4,999)" class="text-avwhite text-sm font-sans">Essential (₹4,999)</option>
+                                    <option value="Classic (₹12,999)" class="text-avwhite text-sm font-sans">Classic (₹12,999)</option>
+                                    <option value="Signature (₹24,999)" class="text-avwhite text-sm font-sans">Signature (₹24,999)</option>
+                                    <option value="Complete Story (₹39,999)" class="text-avwhite text-sm font-sans">Complete Story (₹39,999)</option>
+                                </optgroup>
+                            </select>
+                            <label class="premium-label">Package Type *</label>
+                        </div>
+
+                        <div class="input-group mt-4">
+                            <textarea id="event-details" required rows="3" class="premium-input resize-none pt-4" placeholder=" " maxlength="400"></textarea>
+                            <label class="premium-label" style="top: 1.25rem;">Event Details & Vision *</label>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 mt-4">
+                            <div class="input-group">
+                                <select id="state" required class="premium-input">
+                                    <option value="Karnataka" class="bg-avcard" selected>Karnataka</option>
+                                    <option value="Kerala" class="bg-avcard">Kerala</option>
+                                    <option value="Tamil Nadu" class="bg-avcard">Tamil Nadu</option>
+                                    <option value="Maharashtra" class="bg-avcard">Maharashtra</option>
+                                    <option value="Goa" class="bg-avcard">Goa</option>
+                                    <option value="Other" class="bg-avcard">Other State</option>
+                                </select>
+                                <label class="premium-label">State / Region *</label>
+                            </div>
+
+                            <div class="input-group">
+                                <select id="city" required class="premium-input">
+                                    <option value="Bangalore" class="bg-avcard">Bangalore</option>
+                                    <option value="Mangalore" class="bg-avcard">Mangalore</option>
+                                    <option value="Udupi" class="bg-avcard" selected>Udupi / Manipal</option>
+                                    <option value="Mysore" class="bg-avcard">Mysore</option>
+                                    <option value="Other" class="bg-avcard">Other City</option>
+                                </select>
+                                <label class="premium-label">City *</label>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 mt-2">
+                            <div class="input-group">
+                                <input type="text" id="venue" required class="premium-input" placeholder=" ">
+                                <label class="premium-label">Location / Venue *</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="date" id="event-date" required class="premium-input">
+                                <label class="premium-label">Date of Event *</label>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit" id="submit-btn" class="w-full bg-avred text-white font-bold py-4 rounded-xl uppercase tracking-widest text-[13px] hover:brightness-110 hover:shadow-[0_0_20px_rgba(229,9,20,0.4)] hover:scale-[1.01] transition-all duration-300">
+                                Submit Enquiry
+                            </button>
+                        </div>
+
+                        <div id="booking-success" class="hidden text-avwhite font-mono text-xs tracking-widest uppercase mt-4 text-center border border-avred/50 p-4 rounded-xl bg-avred/10 backdrop-blur-sm shadow-[0_0_20px_rgba(229,9,20,0.2)]">
+                            Enquiry confirmed. Transmitting via dual-channel WhatsApp bridge…
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Brand Card Asset -->
+                <div class="w-full lg:w-1/3 flex flex-col items-center lg:items-end sticky top-32 mt-12 lg:mt-0">
+                    <div class="w-full max-w-sm rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative group border border-avwhite/10">
+                        <img src="IMG_7288.PNG" alt="Aviora Media Business Card" class="w-full h-auto rounded-3xl transform group-hover:scale-[1.03] transition-transform duration-700 ease-out" onerror="this.src='https://placehold.co/400x550/111/FFF?text=Aviora+Media'">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-avred/10 to-transparent pointer-events-none rounded-3xl mix-blend-overlay"></div>
+                    </div>
+                </div>
+
             </div>
+            
+            <!-- Footer -->
+            <footer class="mt-24 border-t border-avwhite/10 grid grid-cols-1 md:grid-cols-3 items-center text-[10px] font-mono tracking-widest text-avwhite/50 gap-6 text-center md:text-left glass-panel rounded-3xl p-8 relative z-10 max-w-7xl mx-auto">
+                <div class="flex flex-col gap-1 items-center md:items-start">
+                    <span class="text-avwhite font-bold text-sm tracking-widest">AVIORA MEDIA</span>
+                    <span>&copy; 2026. ALL RIGHTS RESERVED.</span>
+                </div>
+                <div class="flex justify-center items-center">
+                    <span class="text-avwhite/40 uppercase tracking-widest">Digital Media & Creative Solutions</span>
+                </div>
+                <div class="flex flex-col md:flex-row gap-6 justify-center md:justify-end items-center">
+                    <a href="tel:6364402815" class="text-avwhite hover:text-avred transition-colors text-xs flex items-center gap-1.5">
+                        6364402815
+                    </a>
+                    <a href="https://instagram.com/aviora.media" target="_blank" rel="noopener noreferrer" class="text-avwhite hover:text-avred transition-colors text-xs flex items-center gap-1.5">
+                        @aviora.media
+                    </a>
+                </div>
+            </footer>
         </section>
+
     </main>
 
-    <footer class="py-8 text-center border-t border-white/5 text-[10px] font-mono text-avwhite/40 uppercase tracking-widest">
-        &copy; 2026 Aviora Media · Digital Media & Creative Studio · All Rights Reserved
-    </footer>
-
-    <!-- GSAP Libraries -->
+    <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
-        // MODULE 8: Scroll Restoration Reset
+        // Module 8: Scroll Restoration Reset
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
         window.scrollTo(0, 0);
 
-        // Client-side Sanitization utility
-        function sanitizeText(str) {
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
-
-        // MODULE 3 & 7: Dynamic Feed Hydration from data/instagram-feed.json
-        async function hydrateInstagramFeed() {
-            try {
-                const res = await fetch('data/instagram-feed.json');
-                if (!res.ok) return;
-                const data = await res.json();
-                if (!data.posts || !data.posts.length) return;
-
-                const carousel = document.getElementById('arch-carousel');
-                carousel.innerHTML = '';
-
-                // Duplicate dataset for infinite CSS marquee looping
-                const deck = [...data.posts, ...data.posts];
-
-                deck.forEach(item => {
-                    const card = document.createElement('a');
-                    card.href = item.permalink;
-                    card.target = '_blank';
-                    card.rel = 'noopener noreferrer';
-                    card.className = 'arch-card';
-                    card.innerHTML = `
-                        <div class="card-inner">
-                            <img src="${item.display_url}" loading="lazy" class="w-full h-full object-cover" alt="Aviora Showcase">
-                            <div class="hover-reveal">
-                                <span class="text-[9px] font-mono text-avred uppercase">View on Instagram ↗</span>
-                                <h3 class="font-bold text-xs uppercase line-clamp-2">${item.caption || 'Client Production'}</h3>
-                            </div>
-                        </div>
-                    `;
-                    carousel.appendChild(card);
-                });
-            } catch (err) {
-                console.warn('Using default showcase items.');
+        // Pricing CMS Dataset
+        const pricingData = {
+            instant: {
+                gridClass: "grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto",
+                cards: [
+                    {
+                        eyebrow: "FOR A SINGLE REEL",
+                        title: "Quick Shoot",
+                        desc: "One hour of coverage for a single polished reel, shot, edited, and delivered fast.",
+                        price: "₹1,999 + GST",
+                        period: "• per shoot",
+                        features: [
+                            "Up to 1 hour of coverage on location",
+                            "1 professionally edited reel",
+                            "24-hour delivery turnaround",
+                            "Shot exclusively on iPhone 17 Pro Max",
+                            "Extra shooting time charged at ₹500/hour"
+                        ],
+                        isPopular: false,
+                        ctaText: "Check-out now ↗",
+                        btnClass: "w-full border border-avwhite/30 text-white text-center py-3.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-xl hover:bg-avwhite hover:text-avblack mt-auto"
+                    },
+                    {
+                        eyebrow: "FOR SPECIAL MOMENTS",
+                        title: "Half Day",
+                        desc: "Up to 3 hours of coverage with quick turnaround for the moments that matter most.",
+                        price: "₹4,999 + GST",
+                        period: "• per shoot",
+                        features: [
+                            "Up to 3 hours of coverage on location",
+                            "3 professionally edited reels",
+                            "24-hour delivery turnaround",
+                            "Shot exclusively on iPhone 17 Pro Max",
+                            "Extra shooting time charged at ₹500/hour"
+                        ],
+                        isPopular: true,
+                        popularTag: "Most Popular",
+                        ctaText: "Check-out now ↗",
+                        btnClass: "w-full bg-avred text-white text-center py-3.5 text-xs font-bold uppercase tracking-widest transition-all rounded-xl shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 mt-auto"
+                    }
+                ]
+            },
+            business: {
+                gridClass: "grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto",
+                cards: [
+                    {
+                        eyebrow: "COMPREHENSIVE",
+                        title: "Brand Shoot",
+                        desc: "Professional coverage tailored to campaign, launch, and showcase moments, scoped around your calendar.",
+                        price: "Customised + GST",
+                        period: "",
+                        features: [
+                            "Cinematic visuals for premium brands & events",
+                            "Refined, brand-aligned storytelling",
+                            "Dedicated creative director for every campaign",
+                            "Shot on iPhone 17 Pro Max",
+                            "Extra shooting time billed at standard rates"
+                        ],
+                        isPopular: true,
+                        popularTag: "Most Flexible",
+                        ctaText: "Book Now ↗",
+                        btnClass: "w-full bg-avred text-white text-center py-3.5 text-xs font-bold uppercase tracking-widest transition-all rounded-xl shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 mt-auto"
+                    },
+                    {
+                        eyebrow: "PER REEL",
+                        title: "Product Shoot",
+                        desc: "High-converting product and catalog reels for e-commerce, D2C, and brand launches.",
+                        price: "₹6,999 onwards",
+                        period: "/ per reel + GST",
+                        features: [
+                            "Product, catalog & e-commerce reels",
+                            "Studio or on-location shoots",
+                            "Cinematic reel delivery",
+                            "Shot on iPhone 17 Pro Max",
+                            "RAW content provided on request"
+                        ],
+                        isPopular: false,
+                        ctaText: "Enquire now ↗",
+                        btnClass: "w-full border border-avwhite/30 text-white text-center py-3.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-xl hover:bg-avwhite hover:text-avblack mt-auto"
+                    }
+                ]
+            },
+            wedding: {
+                gridClass: "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6",
+                cards: [
+                    {
+                        eyebrow: "SINGLE EVENT",
+                        title: "Essential",
+                        desc: "Perfect for intimate gatherings, birthdays, or pre-wedding shoots on a budget.",
+                        price: "₹4,999",
+                        period: "",
+                        features: [
+                            "Covers 1 Event",
+                            "3 Professionally Edited Reels",
+                            "Shot on iPhone 17 Pro Max",
+                            "Next-day delivery",
+                            "Extra hours billed at ₹500/hr"
+                        ],
+                        isPopular: false,
+                        ctaText: "Enquire Now ↗",
+                        btnClass: "w-full border border-avwhite/30 text-white text-center py-3.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-xl hover:bg-avwhite hover:text-avblack mt-auto"
+                    },
+                    {
+                        eyebrow: "TWO EVENTS",
+                        title: "Classic",
+                        desc: "Ideal for engagements plus a reception, or multi-day small functions.",
+                        price: "₹12,999",
+                        period: "",
+                        features: [
+                            "Covers up to 2 Events",
+                            "7 Professionally Edited Reels",
+                            "Shot on iPhone 17 Pro Max",
+                            "Next-day delivery",
+                            "Complimentary mobile portraits"
+                        ],
+                        isPopular: false,
+                        ctaText: "Enquire Now ↗",
+                        btnClass: "w-full border border-avwhite/30 text-white text-center py-3.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-xl hover:bg-avwhite hover:text-avblack mt-auto"
+                    },
+                    {
+                        eyebrow: "COMPREHENSIVE",
+                        title: "Signature",
+                        desc: "Comprehensive coverage for standard weddings without the massive agency price tag.",
+                        price: "₹24,999",
+                        period: "",
+                        features: [
+                            "Covers up to 3 Events",
+                            "12 Professionally Edited Reels",
+                            "1 Highlight Teaser Video",
+                            "Shot on iPhone 17 Pro Max",
+                            "Same-day reel delivery"
+                        ],
+                        isPopular: true,
+                        popularTag: "Most Popular",
+                        ctaText: "Enquire Now ↗",
+                        btnClass: "w-full bg-avred text-white text-center py-3.5 text-xs font-bold uppercase tracking-widest transition-all rounded-xl shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 mt-auto"
+                    },
+                    {
+                        eyebrow: "FULL-SCALE",
+                        title: "Complete Story",
+                        desc: "Full-scale wedding coverage for couples who want every moment captured affordably.",
+                        price: "₹39,999",
+                        period: "",
+                        features: [
+                            "Complete Wedding (Up to 4 Events)",
+                            "20 Professionally Edited Reels",
+                            "Shot on iPhone 17 Pro Max",
+                            "Same-day reel delivery",
+                            "All raw content included"
+                        ],
+                        isPopular: false,
+                        ctaText: "Enquire Now ↗",
+                        btnClass: "w-full border border-avwhite/30 text-white text-center py-3.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-xl hover:bg-avwhite hover:text-avblack mt-auto"
+                    }
+                ]
             }
-        }
-        hydrateInstagramFeed();
-
-        // MODULE 9 & 10: Interactive Slide Switcher (Non-blocking)
-        let activeIndex = 0;
-        function setSlide(index) {
-            activeIndex = index;
-            const textSlides = document.querySelectorAll('.svc-text');
-            const screenLayers = document.querySelectorAll('.screen-layer');
-            const indicators = document.querySelectorAll('.slide-indicator');
-
-            textSlides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            screenLayers.forEach((layer, i) => {
-                layer.classList.toggle('active', i === index);
-            });
-            indicators.forEach((dot, i) => {
-                dot.classList.toggle('bg-avred', i === index);
-                dot.classList.toggle('bg-avwhite/20', i !== index);
-            });
-        }
-
-        // Automatic rotate every 5 seconds if visible
-        setInterval(() => {
-            setSlide((activeIndex + 1) % 3);
-        }, 5500);
-
-        // PRICING DATA & TAB CONTROLLER
-        const pricingPlans = {
-            instant: [
-                { title: "Quick Shoot", price: "₹1,999 + GST", period: "/ reel", features: ["1 Hour On-Location Coverage", "1 Polished 4K Reel Delivered", "24-Hour Express Turnaround", "iPhone 17 Pro Max Workflow", "Extra time: ₹500/hr"] },
-                { title: "Half Day", price: "₹4,999 + GST", period: "/ shoot", isPopular: true, features: ["Up to 3 Hours Coverage", "3 Polished 4K Reels", "24-Hour Express Delivery", "Cinematic Sound & Color Grade", "Extra time: ₹500/hr"] }
-            ],
-            business: [
-                { title: "Product Shoot", price: "₹6,999 + GST", period: "/ reel", features: ["Studio / E-Commerce Lighting", "Macrophotography & Detail Cuts", "Commercial Color Grading", "RAW B-Roll Supplied"] },
-                { title: "Brand Campaign", price: "Custom Scope", period: "", isPopular: true, features: ["Multi-Location Video Day", "Full Script & Hook Strategy", "Actor / Model Direction", "Omnichannel Ad Formatting"] }
-            ],
-            wedding: [
-                { title: "Essential Event", price: "₹4,999", period: "/ event", features: ["1 Event Coverage", "3 Cinematic Reels", "Next-Day Delivery Window", "Extra time: ₹500/hr"] },
-                { title: "Signature Suite", price: "₹24,999", period: "/ package", isPopular: true, features: ["Covers Up to 3 Events", "12 Edited Reels + 1 Teaser", "Same-Day Teaser Delivery", "Full Audio & Speeches Track"] }
-            ]
         };
 
-        function renderTab(key, btn) {
-            document.querySelectorAll('#pricing-tabs button').forEach(b => {
-                b.className = 'px-5 py-2.5 rounded-full text-xs font-mono uppercase text-avwhite/60';
+        function switchTab(tabKey, activeBtn) {
+            document.querySelectorAll('.pricing-tab-btn').forEach(btn => {
+                btn.className = 'pricing-tab-btn px-6 py-3 rounded-full text-xs font-mono uppercase tracking-widest transition-all duration-300 text-avwhite/60 hover:text-avwhite';
             });
-            btn.className = 'px-5 py-2.5 rounded-full text-xs font-mono uppercase bg-avred text-white';
+            activeBtn.className = 'pricing-tab-btn px-6 py-3 rounded-full text-xs font-mono uppercase tracking-widest transition-all duration-300 bg-avred text-white shadow-[0_0_15px_rgba(229,9,20,0.4)]';
 
-            const container = document.getElementById('pricing-cards-container');
-            container.innerHTML = '';
-
-            pricingPlans[key].forEach(plan => {
-                const card = document.createElement('div');
-                card.className = `pricing-card glass-panel p-8 rounded-3xl relative flex flex-col justify-between ${plan.isPopular ? 'border border-avred/50 shadow-[0_0_30px_rgba(229,9,20,0.15)] bg-avcard' : 'border border-avwhite/5 bg-[#0F0F0F]'}`;
-                card.innerHTML = `
-                    ${plan.isPopular ? '<div class="pricing-popular-badge">Top Selected</div>' : ''}
-                    <div>
-                        <h3 class="font-bold text-xl uppercase mb-2">${plan.title}</h3>
-                        <div class="text-2xl font-mono text-avwhite font-bold mb-6">${plan.price} <span class="text-xs text-white/40 font-normal">${plan.period}</span></div>
-                        <ul class="space-y-3 text-xs font-mono mb-8">
-                            ${plan.features.map(f => `<li class="flex items-center gap-2"><span class="text-avred">✓</span> ${f}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <a href="#booking" class="w-full text-center py-3 rounded-xl uppercase font-bold text-xs tracking-widest ${plan.isPopular ? 'bg-avred text-white' : 'border border-white/20 text-white hover:bg-white hover:text-black'} transition-all">
-                        Reserve Slot ↗
-                    </a>
-                `;
-                container.appendChild(card);
+            const cardsContainer = document.getElementById('pricing-cards-container');
+            gsap.to(cardsContainer.children, {
+                opacity: 0, y: 15, duration: 0.25, stagger: 0.05,
+                onComplete: () => renderPricingCards(tabKey)
             });
         }
-        renderTab('instant', document.querySelector('#pricing-tabs button'));
 
-        // FAQ Toggle Logic
-        document.querySelectorAll('.faq-item button').forEach(button => {
-            button.addEventListener('click', () => {
-                const parent = button.closest('.faq-item');
-                parent.classList.toggle('open');
+        function renderPricingCards(tabKey) {
+            const cardsContainer = document.getElementById('pricing-cards-container');
+            cardsContainer.innerHTML = '';
+            const tabConfig = pricingData[tabKey];
+            cardsContainer.className = tabConfig.gridClass;
+
+            tabConfig.cards.forEach(card => {
+                const popularBadge = card.isPopular ? `
+                    <div class="absolute -top-3 right-6 bg-avred text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-[0_0_15px_rgba(229,9,20,0.5)] z-20">${card.popularTag}</div>
+                ` : '';
+
+                const cardClass = card.isPopular 
+                    ? 'pricing-card glass-panel border-avred/50 p-8 rounded-3xl flex flex-col relative shadow-[0_0_30px_rgba(229,9,20,0.15)] bg-avcard h-full opacity-0 translate-y-4' 
+                    : 'pricing-card glass-panel p-8 rounded-3xl flex flex-col relative border border-avwhite/5 bg-[#0F0F0F] h-full opacity-0 translate-y-4';
+
+                const featuresList = card.features.map(f => `
+                    <li class="flex items-start gap-3">
+                        <span class="text-avred font-bold text-sm">✓</span>
+                        <span class="text-avwhite/90 leading-tight">${f}</span>
+                    </li>
+                `).join('');
+
+                cardsContainer.innerHTML += `
+                    <div class="${cardClass}">
+                        ${popularBadge}
+                        <div class="mb-6 border-b border-avwhite/10 pb-6 flex-shrink-0">
+                            <span class="text-[10px] font-mono text-avred uppercase tracking-widest block mb-2">${card.eyebrow}</span>
+                            <h3 class="text-2xl font-bold uppercase mb-2">${card.title}</h3>
+                            <p class="text-xs text-avwhite/60 mb-6 h-12 leading-relaxed">${card.desc}</p>
+                            <div class="text-2xl md:text-3xl font-mono text-avwhite font-bold">${card.price} <span class="text-[11px] text-avwhite/40 font-sans font-normal ml-1">${card.period}</span></div>
+                        </div>
+                        <ul class="space-y-3.5 text-xs flex-grow mb-8 font-mono">
+                            ${featuresList}
+                        </ul>
+                        <a href="#booking" class="${card.isPopular ? 'w-full bg-avred text-white text-center py-3.5 text-xs font-bold uppercase tracking-widest transition-all rounded-xl shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 mt-auto' : card.btnClass}">${card.ctaText}</a>
+                    </div>
+                `;
             });
-        });
 
-        // MODULE 1: Secure Form Submission & WhatsApp Routing
-        const form = document.getElementById('booking-form');
-        const statusBox = document.getElementById('booking-status');
+            gsap.to(cardsContainer.children, { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: "power3.out" });
+        }
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Securing Reservation...';
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
 
-            const payload = {
-                fullname: document.getElementById('fullname').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                packageType: document.getElementById('packageType').value,
-                eventDate: document.getElementById('eventDate').value,
-                state: document.getElementById('state').value,
-                city: document.getElementById('city').value.trim(),
-                venue: document.getElementById('venue').value.trim(),
-                eventDetails: document.getElementById('eventDetails').value.trim(),
-                callTime: 'Standard Business Hours'
-            };
+            renderPricingCards('instant');
 
-            // WhatsApp instant bridge fallback
-            const waText = encodeURIComponent(
-                `*AVIORA MEDIA SHOOT BOOKING*\n\n` +
-                `*Name:* ${payload.fullname}\n` +
-                `*Package:* ${payload.packageType}\n` +
-                `*Date:* ${payload.eventDate}\n` +
-                `*Location:* ${payload.venue}, ${payload.city}\n` +
-                `*Details:* ${payload.eventDetails}`
-            );
+            // FAQ Accordion
+            document.querySelectorAll('.faq-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    item.classList.toggle('open');
+                });
+            });
 
-            try {
-                const response = await fetch('/api/booking', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+            // Cinematic Intro Loader Animation
+            const tlLoader = gsap.timeline({
+                onComplete: () => {
+                    document.getElementById('loader').style.display = 'none';
+                    document.body.style.overflowY = 'auto';
+                }
+            });
+            document.body.style.overflowY = 'hidden';
+
+            tlLoader.to("#loader-progress", { width: "100%", duration: 1.2, ease: "power2.inOut" })
+                    .to("#loader", { opacity: 0, duration: 0.6, ease: "power2.inOut" }, "+=0.2")
+                    .to("#main-content", { opacity: 1, duration: 0.1 }, "-=0.2")
+                    .to(".hero-text", { y: 0, duration: 1, stagger: 0.1, ease: "power4.out" }, "-=0.2");
+
+            // 3D Arch Cylinder Math Engine (Restored)
+            function initArchCylinder() {
+                const archCards = document.querySelectorAll('.arch-card');
+                function renderLoop() {
+                    const windowCenter = window.innerWidth / 2;
+                    archCards.forEach(card => {
+                        const rect = card.getBoundingClientRect();
+                        const cardCenter = rect.left + (rect.width / 2);
+                        const distFromCenter = cardCenter - windowCenter;
+                        const divisor = window.innerWidth < 768 ? window.innerWidth * 1.2 : window.innerWidth * 0.7;
+                        const normalizedDist = distFromCenter / divisor;
+                        
+                        const yDrop = Math.pow(normalizedDist, 2) * 160; 
+                        const tilt = normalizedDist * 18; 
+                        const depthScale = 1 - (Math.abs(normalizedDist) * 0.2); 
+                        const fade = 1 - (Math.abs(normalizedDist) * 0.5);
+
+                        card.style.transform = `translateY(${yDrop}px) rotate(${tilt}deg) scale(${depthScale})`;
+                        card.style.opacity = Math.max(0.2, fade);
+                        card.style.zIndex = Math.round(100 - Math.abs(normalizedDist) * 100);
+                    });
+                    requestAnimationFrame(renderLoop);
+                }
+                renderLoop();
+            }
+            initArchCylinder();
+
+            // Pinned Sticky iPhone 17 Pro Max Services Engine (Restored & Fixed)
+            const serviceTexts = document.querySelectorAll('.svc-text');
+            const screenLayers = document.querySelectorAll('.screen-layer');
+            const mainIphone = document.getElementById('main-iphone');
+            const totalSteps = serviceTexts.length;
+            let currentStep = -1;
+
+            function updateServicesUI(index) {
+                if(currentStep === index) return;
+                currentStep = index;
+
+                serviceTexts.forEach((txt, i) => {
+                    if(i === index) {
+                        txt.classList.add('active');
+                    } else {
+                        txt.classList.remove('active');
+                    }
                 });
 
-                statusBox.classList.remove('hidden');
-                statusBox.textContent = "Booking received! Opening WhatsApp confirmation...";
-                
-                setTimeout(() => {
-                    window.open(`https://wa.me/916364402815?text=${waText}`, '_blank', 'noopener,noreferrer');
-                }, 800);
-            } catch (err) {
-                // Graceful fallback to direct WhatsApp redirect
-                window.open(`https://wa.me/916364402815?text=${waText}`, '_blank', 'noopener,noreferrer');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Transmit Booking Request';
+                screenLayers.forEach((layer, i) => {
+                    if(i === index) {
+                        layer.classList.add('active');
+                        const vid = layer.querySelector('video');
+                        if(vid) vid.play().catch(()=>{});
+                        if(i === 2) {
+                            mainIphone.classList.add('highlight-red');
+                        } else {
+                            mainIphone.classList.remove('highlight-red');
+                        }
+                    } else {
+                        layer.classList.remove('active');
+                        const vid = layer.querySelector('video');
+                        if(vid) vid.pause();
+                    }
+                });
             }
+
+            updateServicesUI(0);
+
+            // GSAP ScrollTrigger Pinned Scrub Animation
+            ScrollTrigger.create({
+                trigger: "#services-trigger",
+                start: "top top",
+                end: "+=1800",
+                pin: "#services-pin",
+                pinSpacing: true,
+                scrub: 0.5,
+                onUpdate: (self) => {
+                    let progress = self.progress;
+                    let stepIndex = Math.floor(progress * totalSteps);
+                    if(stepIndex >= totalSteps) stepIndex = totalSteps - 1;
+                    updateServicesUI(stepIndex);
+                }
+            });
+
+            // Form Handler with WhatsApp Dual Dispatch
+            const bookingForm = document.getElementById('booking-form');
+            bookingForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('fullname').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const pkg = document.getElementById('package-type').value;
+                const details = document.getElementById('event-details').value.trim();
+                const state = document.getElementById('state').value;
+                const city = document.getElementById('city').value;
+                const venue = document.getElementById('venue').value.trim();
+                const date = document.getElementById('event-date').value;
+
+                const textMessage = 
+                    `*NEW BOOKING ENQUIRY - AVIORA MEDIA*\n\n` +
+                    `• *Client:* ${name}\n` +
+                    `• *Phone:* +91 ${phone}\n` +
+                    `• *Email:* ${email}\n` +
+                    `• *Package:* ${pkg}\n` +
+                    `• *Location:* ${venue}, ${city}, ${state}\n` +
+                    `• *Shoot Date:* ${date}\n` +
+                    `• *Brief:* ${details}`;
+
+                const successBox = document.getElementById('booking-success');
+                successBox.classList.remove('hidden');
+
+                // Send to backend (if available) & open WhatsApp confirmation immediately
+                fetch('/api/booking', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ fullname: name, email, phone, packageType: pkg, eventDetails: details, state, city, venue, eventDate: date })
+                }).catch(() => {});
+
+                setTimeout(() => {
+                    window.open(`https://wa.me/916364402815?text=${encodeURIComponent(textMessage)}`, '_blank', 'noopener,noreferrer');
+                }, 600);
+            });
         });
     </script>
 </body>
